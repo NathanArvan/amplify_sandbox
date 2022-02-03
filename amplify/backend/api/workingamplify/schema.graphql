@@ -1,0 +1,32 @@
+type Token @model @auth(rules: [{allow: public}]) @key(name: "byBoard", fields: ["boardID"]) {
+  id: ID!
+  Name: String
+  Image: String
+  boardID: ID!
+}
+
+type Board @model @auth(rules: [{allow: public}]) @key(name: "byCampaign", fields: ["campaignID"]) {
+  id: ID!
+  Tokens: [Token] @connection(keyName: "byBoard", fields: ["id"])
+  xDimension: Int
+  yDimension: Int
+  campaignID: ID!
+}
+
+type Campaign @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: ["userID"]) {
+  id: ID!
+  userID: ID!
+  Boards: [Board] @connection(keyName: "byCampaign", fields: ["id"])
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  CreatedCampaign: [Campaign] @connection(keyName: "byUser", fields: ["id"])
+}
+
+type FreeToken @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  image: String
+  name: String
+}
+ 
