@@ -236,6 +236,10 @@ export const listCampaigns = /* GraphQL */ `
         userID
         Name
         createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
       startedAt

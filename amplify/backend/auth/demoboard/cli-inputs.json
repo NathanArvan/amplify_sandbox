@@ -1,0 +1,20 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "authSelections": "identityPoolAndUserPool",
+    "requiredAttributes": [
+      "email"
+    ],
+    "resourceName": "demoboard",
+    "usernameAttributes": [
+      "email"
+    ],
+    "passwordPolicyCharacters": [],
+    "passwordPolicyMinLength": 8,
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [],
+    "autoVerifiedAttributes": [
+      "email"
+    ]
+  }
+}
